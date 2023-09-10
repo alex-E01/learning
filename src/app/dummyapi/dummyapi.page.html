@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>dummyapi</ion-title>
+    <ion-icon routerLink="/cart" slot="end" name="cart-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngFor="let item of product; let i=index;" >
+    <img (click)="onclick(i)" alt="Silhouette of mountains" src={{item.thumbnail}} />
+    <ion-card-header>
+      <ion-card-title>{{item.brand}}</ion-card-title>
+      <ion-card-subtitle>{{item.category}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{item.description}}
+    </ion-card-content>
+    <ion-buttons>
+      <ion-button (click)="Addtocart(i)">Add to cart</ion-button>
+      <ion-button routerLink="/cart">Buy Now</ion-button>
+    </ion-buttons>
+  </ion-card>
+
+</ion-content>

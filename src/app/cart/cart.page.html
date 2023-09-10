@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <ion-card *ngFor="let item of mycart; let i=index;" >
+    <img  alt="Silhouette of mountains" src={{item.thumbnail}} />
+    <ion-card-header>
+      <ion-card-title>{{item.brand}}</ion-card-title>
+      <ion-card-subtitle>{{item.category}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{item.description}}
+    </ion-card-content>
+    <ion-buttons>
+    </ion-buttons>
+  </ion-card>
+
+</ion-content>

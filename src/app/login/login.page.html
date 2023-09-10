@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="loginform" (ngSubmit)="onsubmit(loginform.value,'top')">
+  <ion-item>
+    <ion-label position="floating " >Email</ion-label>
+    <ion-input formControlName="email" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" >Password</ion-label>
+    <ion-input type="password" formControlName="password" aria-labelledby></ion-input>
+  </ion-item>
+  <ion-button expand="full" type="submit" [disabled]="loginform.invalid">Login</ion-button>
+</form>
+<p>Not have a account yet?</p><a routerLink="/signup">Signup here</a>
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>createpost</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>Create Post</ion-label>
+  <ion-textarea [(ngModel)]="createpost"></ion-textarea>
+  <ion-button (click)="savedata()">Create Post</ion-button>
+</ion-content>

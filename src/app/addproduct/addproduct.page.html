@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>addproduct</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-item>
+  <ion-label position="floating">Product Title</ion-label>
+  <ion-input [(ngModel)]="product_title" type="text"></ion-input>
+ </ion-item>
+ <ion-item>
+  <ion-label position="floating">Product Name</ion-label>
+  <ion-input [(ngModel)]="product_name" type="text"></ion-input>
+ </ion-item>
+ <ion-item>
+  <ion-label position="floating">Product Price</ion-label>
+  <ion-input [(ngModel)]="product_price" type="number"></ion-input>
+ </ion-item>
+ <ion-item>
+  <ion-label >Manufacture Date : </ion-label>
+  <ion-input [(ngModel)]="mfd_date" type="date"></ion-input>
+ </ion-item>
+ <ion-item>
+  <ion-label >Expire Date : </ion-label>
+  <ion-input [(ngModel)]="exp_date" type="date"></ion-input>
+ </ion-item>
+
+ <ion-item>
+  <input hidden  type="file" #addimage (change)="onselect($event)" multiple>
+  <ion-button (click)="addimage.click()">Add Image</ion-button>
+ </ion-item>
+
+ <ion-button (click)="addproduct()" expand="full">Add Product</ion-button>
+
+ <div>
+  <img *ngFor="let images of urls" [src]="images" height="100px">
+ </div>
+
+</ion-content>

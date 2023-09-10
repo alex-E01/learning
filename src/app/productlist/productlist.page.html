@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>productlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+
+  <div *ngFor="let item of single_product.images;">
+    <img src={{item}} alt="">
+
+  </div>
+</ion-content>

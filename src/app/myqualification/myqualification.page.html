@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>My Qualification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <p>hi</p>
+ <form [formGroup]="skillsForm" (ngSubmit)="onsubmit(skillsForm.value)">
+  <ion-item>
+    <ion-label position="floating">Your Name</ion-label>
+    <ion-input type="text" formControlName="name" ></ion-input>
+  </ion-item>
+  <h5>Add Skills :</h5>
+  <table>
+    <tr>
+      <th>Skill</th>
+      <th>Expierence</th>
+      <th>Action</th>
+    </tr>
+    <div formArrayName="skills">
+      <tr [formGroupName]="i" *ngFor="let s of skillsForm.value.skills; let i=index">
+        <td> <ion-input type="text" formControlName="skill" placeholder="Enter Skills"></ion-input></td>
+        <td> <ion-input type="text" formControlName="exp" placeholder="Enter Experience"></ion-input></td>
+        <td> <ion-icon name="trash-outline"  (click)="removeSkill(i)"></ion-icon></td>
+      </tr>
+    </div>
+  </table>
+
+  <ion-button slot="start" type="submit" [disabled]="skillsForm.invalid">Update</ion-button>
+  <ion-button slot="end" (click)="addskills()" slot="start">Add Skill</ion-button>
+</form>
+ 
+</ion-content>

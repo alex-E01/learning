@@ -1,0 +1,77 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{loggedin_user.email}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item (click)="createpost()">Create Post</ion-item>
+      <ion-item routerLink="/qualification">Add Qualification</ion-item>
+      <ion-item routerLink="/myqualification">My Qualification</ion-item>
+      <ion-item routerLink="/addproduct">Add Product</ion-item>
+      <ion-item routerLink="/dummyapi">Dummy Api</ion-item>
+      <ion-item (click)="deleteaccount()">Delete My Account</ion-item>
+      <ion-item (click)="logout()">Logout</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{loggedin_user.name}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+
+    <ion-segment value="allpost" [(ngModel)]="selectsegment">
+
+      <ion-segment-button value="allpost">
+        <ion-label>All Post</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="mypost">
+        <ion-label>My Post</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+
+    <div *ngIf="selectsegment == 'allpost'">
+
+
+    <ion-searchbar [(ngModel)]="searchTerm"   (ionInput)="filterItems(searchTerm)"> </ion-searchbar>
+
+      <ion-card *ngFor="let item of setitem">
+        <ion-card-header>
+          <ion-card-subtitle>
+            <ion-chip>
+              <ion-avatar>
+                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              </ion-avatar>
+              <ion-label>{{item.user_name}}</ion-label>
+            </ion-chip>
+          </ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+         {{item.post_content}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngIf="selectsegment == 'mypost'">
+    <ion-searchbar></ion-searchbar>
+      <ion-card *ngFor="let item of mypost">
+        <ion-card-content>
+        {{item.post_content}}
+        </ion-card-content>
+      </ion-card>
+      
+    </div>
+
+
+  </ion-content>
+</div>
